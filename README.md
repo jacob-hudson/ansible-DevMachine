@@ -1,5 +1,5 @@
 # UDE
-Ansible code to provision and manage my virtual dev machines.  
+Ansible code to provision and manage my virtual and physical dev machines.  
 
 Requirements
 ------------
