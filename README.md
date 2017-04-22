@@ -1,6 +1,8 @@
 # UDE
 Ansible code to provision and manage my virtual and physical dev machines.  
 
+# To Run
+`bash <(curl https://raw.githubusercontent.com/jacob-hudson/ansible-role-ude/master/install.sh)`
 Requirements
 ------------
 
