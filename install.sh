@@ -53,6 +53,7 @@ case "$(uname)" in
                 sudo apt-add-repository -y ppa:ansible/ansible
                 sudo apt-get -y update
                 sudo apt-get install -y ansible
+                sudo apt-get install -y git
             else
                 sudo apt-get install -y python-dev-all python-yaml python-paramiko python-jinja2 python-pip
                 sudo pip install --upgrade ansible
