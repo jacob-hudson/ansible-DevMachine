@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Sort Windows/Mac/Linux hosts
+      group_by: key="{{ ansible_system }}"
+      changed_when: false
+
+- hosts: Darwin
+  connection: local
+  tasks: []
+  roles:
+    - { role: system }
+    - { role: user }
+
+- hosts: Linux
+  connection: local
+  tasks: []
+  roles:
+    - { role: system }

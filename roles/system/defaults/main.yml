@@ -1,0 +1,7 @@
+---
+# defaults file for system
+username: "{{ lookup('env','USER') }}"
+home_dir: "{{ lookup('env', 'HOME') }}"
+homebrew_taps: ""
+homebrew_cask_packages: ""
+homebrew_completions_packages: ""

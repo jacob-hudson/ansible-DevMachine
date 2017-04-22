@@ -1,0 +1,22 @@
+---
+# vars file for Darwin
+homebrew_taps:
+  - caskroom/cask
+  - homebrew/bundle
+  - homebrew/dupes
+  - homebrew/versions
+  - homebrew/completions
+homebrew_packages:
+  - { name: coreutils, state: installed }
+  - { name: gnupg21, state: installed }
+  - { name: openssh, state: installed }
+  - { name: git, state: installed }
+  - ansible
+homebrew_cask_packages:
+  - vagrant
+  - virtualbox
+  - virtualbox-extension-pack
+homebrew_completions_packages:
+  - bash-completion
+  - vagrant-completion
+  - packer-completion

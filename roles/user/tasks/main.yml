@@ -1,0 +1,15 @@
+---
+# tasks file for common
+- name: OS specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    # (e.g. CentOS 7 7.1.1503)
+    - files:
+        - "{{ ansible_system }}.yml"
+        - "default.yml"
+
+- name: common install tasks
+  include: install.yml
+
+- name: common configuration tasks
+  include: configure.yml

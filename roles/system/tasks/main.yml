@@ -1,0 +1,36 @@
+---
+# tasks file for system
+- name: Update Apple App Store software and OS X
+  become: yes
+  shell: softwareupdate -ia
+  register: softwareupdate_result
+  when: ansible_system == "Darwin"
+  changed_when: "'No updates are available.' not in softwareupdate_result.stderr"
+
+- name: Ansible localhost configuration in /usr/local/etc/ansible/hosts/
+  lineinfile: dest="/usr/local/etc/ansible/hosts/localhost"
+              create=yes
+              line="localhost ansible_connection=local"
+  when: ansible_system == "Darwin"
+
+- name: Remove Ansible default hosts
+  become: yes
+  shell: "if [[ ! -d /etc/ansible/hosts && -f /etc/ansible/hosts ]]; then mv /etc/ansible/hosts /etc/ansible/hosts.old; fi"
+  when: ansible_system == "Linux"
+
+- name: Convert Ansible default hosts file into a directory
+  become: yes
+  file: path="/etc/ansible/hosts" state=directory
+  when: ansible_system == "Linux"
+
+- name: Restore Ansible default hosts
+  become: yes
+  shell: "if [[ -e /etc/ansible/hosts.old ]]; then mv /etc/ansible/hosts.old /etc/ansible/hosts/hosts; fi"
+  when: ansible_system == "Linux"
+
+- name: Ansible localhost configuration in /etc/ansible/hosts/
+  become: yes
+  lineinfile: dest="/etc/ansible/hosts/localhost"
+              create=yes
+              line="localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python2"
+  when: ansible_system == "Linux"

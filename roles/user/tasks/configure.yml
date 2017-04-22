@@ -1,0 +1,6 @@
+---
+
+- name: Generate OpenSSH RSA keypair
+  shell: ssh-keygen -b 4096 -t rsa -f "{{ home_dir }}/.ssh/id_rsa" -N "" -C "{{ user_emailaddress }}"
+  args:
+    creates: "{{ home_dir }}/.ssh/id_rsa"
