@@ -33,8 +33,6 @@ case "$(uname)" in
         if [[ ! -d /usr/local/opt/openssl ]]; then
             brew install openssl
         fi
-
-
         if ! hash pip 2>/dev/null; then
             printf "\nInstalling Python via HomeBrew ...\n\n"
             # https://github.com/MacPython/wiki/wiki/Which-Python
@@ -45,7 +43,6 @@ case "$(uname)" in
             printf "\nInstalling Ansible via HomeBrew ...\n\n"
             brew install ansible
         fi
-
     ;;
     Linux)
         # Debian
@@ -61,6 +58,7 @@ case "$(uname)" in
                 sudo apt-get install -y python-dev-all python-yaml python-paramiko python-jinja2 python-pip
                 sudo pip install --upgrade ansible
             fi
+          fi
 esac
 
 
