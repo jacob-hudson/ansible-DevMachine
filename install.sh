@@ -50,7 +50,6 @@ case "$(uname)" in
             export DEBIAN_FRONTEND=noninteractive
             export DEBCONF_NONINTERACTIVE_SEEN=true
             if sudo apt-get install -qy software-properties-common; then
-                printf "\nInstalling Ansible Ubuntu PPA ...\n\n"
                 sudo apt-add-repository -y ppa:ansible/ansible
                 sudo apt-get -y update
                 sudo apt-get install -y ansible
@@ -60,6 +59,5 @@ case "$(uname)" in
             fi
           fi
 esac
-
 
 ansible-pull $ANSIBLE_ARGS --url=https://github.com/jacob-hudson/ansible-role-ude.git -i localhost,
