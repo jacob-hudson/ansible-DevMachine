@@ -18,10 +18,10 @@
   shell: "if [[ ! -d /etc/ansible/hosts && -f /etc/ansible/hosts ]]; then mv /etc/ansible/hosts /etc/ansible/hosts.old; fi"
   when: ansible_system == "Linux"
 
-- name: Convert Ansible default hosts file into a directory
-  become: yes
-  file: path="/etc/ansible/hosts" state=directory
-  when: ansible_system == "Linux"
+# - name: Convert Ansible default hosts file into a directory
+#   become: yes
+#   file: path="/etc/ansible/hosts" state=directory
+#   when: ansible_system == "Linux"
 
 - name: Restore Ansible default hosts
   become: yes
