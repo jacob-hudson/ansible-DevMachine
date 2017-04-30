@@ -2,4 +2,6 @@
 
 os:
   - linux
-  - osx
+
+script:
+  - curl https://raw.githubusercontent.com/jacob-hudson/ansible-role-ude/master/install.sh | sudo bash
