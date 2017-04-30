@@ -22,15 +22,15 @@
 #   become: yes
 #   file: path="/etc/ansible/hosts" state=directory
 #   when: ansible_system == "Linux"
-
-- name: Restore Ansible default hosts
-  become: yes
-  shell: "if [[ -e /etc/ansible/hosts.old ]]; then mv /etc/ansible/hosts.old /etc/ansible/hosts/hosts; fi"
-  when: ansible_system == "Linux"
-
-- name: Ansible localhost configuration in /etc/ansible/hosts/
-  become: yes
-  lineinfile: dest="/etc/ansible/hosts/localhost"
-              create=yes
-              line="localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python2"
-  when: ansible_system == "Linux"
+# 
+# - name: Restore Ansible default hosts
+#   become: yes
+#   shell: "if [[ -e /etc/ansible/hosts.old ]]; then mv /etc/ansible/hosts.old /etc/ansible/hosts/hosts; fi"
+#   when: ansible_system == "Linux"
+#
+# - name: Ansible localhost configuration in /etc/ansible/hosts/
+#   become: yes
+#   lineinfile: dest="/etc/ansible/hosts/localhost"
+#               create=yes
+#               line="localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python2"
+#   when: ansible_system == "Linux"
