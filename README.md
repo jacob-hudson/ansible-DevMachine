@@ -1,5 +1,5 @@
 # UDE
-
+[![Build Status](https://travis-ci.org/jacob-hudson/ansible-role-ude.svg?branch=master)](https://travis-ci.org/jacob-hudson/ansible-role-ude)
 # To Run
 ## OS X
 `curl https://raw.githubusercontent.com/jacob-hudson/ansible-role-ude/master/install.sh | sudo bash`
